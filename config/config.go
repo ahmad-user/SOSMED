@@ -25,27 +25,27 @@ type AppConfig struct {
 func AssignEnv(c AppConfig) (AppConfig, bool) {
 	var missing = false
 
-	if val, found := os.LookupEnv("DBUsername"); found {
+	if val, found := os.LookupEnv("DBUSER"); found {
 		c.DBUsername = val
 	} else {
 		missing = true
 	}
-	if val, found := os.LookupEnv("DBPassword"); found {
+	if val, found := os.LookupEnv("DBPASS"); found {
 		c.DBPassword = val
 	} else {
 		missing = true
 	}
-	if val, found := os.LookupEnv("DBPort"); found {
+	if val, found := os.LookupEnv("DBPORT"); found {
 		c.DBPort = val
 	} else {
 		missing = true
 	}
-	if val, found := os.LookupEnv("DBHost"); found {
+	if val, found := os.LookupEnv("DBHOST"); found {
 		c.DBHost = val
 	} else {
 		missing = true
 	}
-	if val, found := os.LookupEnv("DBName"); found {
+	if val, found := os.LookupEnv("DBNAME"); found {
 		c.DBName = val
 	} else {
 		missing = true
