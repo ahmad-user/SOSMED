@@ -102,7 +102,7 @@ func (ct *controller) Update() echo.HandlerFunc {
 		hp := middlewares.DecodeToken(c.Get("user").(*jwt.Token))
 
 		if hp == "" {
-			log.Println("error decode token:", "hp tidak ditemukan")
+			log.Println("error decode token:", "email tidak ditemukan")
 			return c.JSON(http.StatusUnauthorized, helper.ResponseFormat(http.StatusUnauthorized, "tidak dapat mengakses fitur ini", nil))
 		}
 

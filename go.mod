@@ -3,13 +3,14 @@ module ALTA_BE_SOSMED
 go 1.21.6
 
 require (
+	github.com/cloudinary/cloudinary-go v1.7.0
 	github.com/labstack/echo/v4 v4.10.2
 	golang.org/x/crypto v0.21.0
 	gorm.io/driver/mysql v1.5.4
 )
 
 require (
-	github.com/cloudinary/cloudinary-go/v2 v2.7.0 
+	github.com/cloudinary/cloudinary-go/v2 v2.7.0
 	github.com/creasty/defaults v1.7.0 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.3 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
