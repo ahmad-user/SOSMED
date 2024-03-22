@@ -3,6 +3,7 @@ package routes
 import (
 	"ALTA_BE_SOSMED/config"
 	"ALTA_BE_SOSMED/features/comment"
+	"ALTA_BE_SOSMED/features/post"
 	"ALTA_BE_SOSMED/features/user"
 
 	echojwt "github.com/labstack/echo-jwt/v4"
@@ -10,9 +11,10 @@ import (
 	// "github.com/labstack/echo"
 )
 
-func InitRoute(c *echo.Echo, ct1 user.UserController, ct comment.ComController) {
+func InitRoute(c *echo.Echo, ct1 user.UserController, ct comment.ComController, pc post.PostController) {
 	userRoute(c, ct1)
 	comRoute(c, ct)
+	postRoute(c, pc)
 }
 
 func userRoute(c *echo.Echo, ct1 user.UserController) {
@@ -40,4 +42,16 @@ func comRoute(c *echo.Echo, ct comment.ComController) {
 	c.DELETE("/comment/:id", ct.Delete(), echojwt.WithConfig(echojwt.Config{
 		SigningKey: []byte(config.JWTSECRET),
 	}))
+}
+
+func postRoute(c *echo.Echo, pc post.PostController) {
+	c.POST("/posting", pc.Add(), echojwt.WithConfig(echojwt.Config{
+		SigningKey: []byte(config.JWTSECRET),
+	}))
+	// c.PUT("/posting/:id", pc.Update(), echojwt.WithConfig(echojwt.Config{
+	// 	SigningKey: []byte(config.JWTSECRET),
+	// }))
+	// c.DELETE("/posting/:id", pc.Delete(), echojwt.WithConfig(echojwt.Config{
+	// 	SigningKey: []byte(config.JWTSECRET),
+	// }))
 }

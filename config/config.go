@@ -2,6 +2,7 @@ package config
 
 import (
 	comment "ALTA_BE_SOSMED/features/comment/data"
+	post "ALTA_BE_SOSMED/features/post/data"
 	user "ALTA_BE_SOSMED/features/user/data"
 	"fmt"
 	"os"
@@ -77,7 +78,7 @@ func InitSQL(c AppConfig) *gorm.DB {
 		return nil
 	}
 
-	db.AutoMigrate(&user.User{}, &comment.Comment{})
+	db.AutoMigrate(&user.User{}, &comment.Comment{}, &post.Post{})
 
 	return db
 }

@@ -1,6 +1,9 @@
 package data
 
-import "ALTA_BE_SOSMED/features/comment/data"
+import (
+	comment "ALTA_BE_SOSMED/features/comment/data"
+	post "ALTA_BE_SOSMED/features/post/data"
+)
 
 type User struct {
 	UserID    int
@@ -10,5 +13,6 @@ type User struct {
 	Picture   string
 	Tgl_lahir string
 	Gender    bool
-	Comment   []data.Comment `gorm:"foreignKey:Pemiliks;references:Email"`
+	Post      []post.Post       `gorm:"foreignKey:Pemilik;references:Email"`
+	Comment   []comment.Comment `gorm:"foreignKey:Pemiliks;references:Email"`
 }
