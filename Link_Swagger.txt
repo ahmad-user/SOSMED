@@ -1,1 +1,1 @@
-https://github.com/ahmad-user/SOSMED.git
+https://app.swaggerhub.com/apis/MuhammadFadilah/Sosial_Media/1.0.0
